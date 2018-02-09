@@ -1,0 +1,43 @@
+﻿<style>
+    table {
+        color: #369;
+        font-size: large;
+        border: 1px solid black;
+    }
+    thead {
+        border: 1px solid black;
+    }
+    td {
+        border: 1px solid black;
+    }
+</style>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Gender</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>{{firstName}}</td>
+            <td>{{lastName}}</td>
+            <td>{{salary}}</td>
+            <td>{{age}}</td>
+        </tr>
+        <tr *ngIf='showDetails'>
+            <td>{{firstName1}}</td>
+            <td>{{lastName1}}</td>
+            <td>{{salary1}}</td>
+            <td>{{age1}}</td>
+        </tr>
+    </table>
+    <br />
+    <!--show and hode details-->
+    <button (click)="toggleDetails()">
+        {{ showDetails ? 'Hide' : 'Show' }}  Details
+    </button>
+    <br />
+</div>

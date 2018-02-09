@@ -1,0 +1,14 @@
+﻿
+table {
+    color: #369;
+    font-size: large;
+    border: 1px solid black;
+}
+
+thead {
+    border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
+}
