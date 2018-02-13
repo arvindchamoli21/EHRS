@@ -14,15 +14,30 @@ var AppComponent = /** @class */ (function () {
         this.isDisable = false;
     }
     AppComponent.prototype.onClick = function () {
-        console.log('Button clciked');
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n               <h1>Hello {{name}}</h1>\n               <my-emp></my-emp>\n               <br/>\n               <button [disabled] = 'isDisable'>Click Me </button>\n               <button (click) = 'onClick()'>Click</button>\n\n               event binding\n\n               Name : <input [value]= 'name' (input)= 'name = $event.target.value'/>\n               <br/>\n               You have entered : {{name}}\n               <br/>  <br/>\n               Company : <input [(ngModel)]= 'company'/>\n                <br/>\n               You Company entered : {{company}}\n\n               <br/>\n               Employee List Using *ngFor\n               ========================\n               <my-empList></my-empList>\n\n\n              "
+            template: "\n                     <h1>Employee List Using * ngFor</h1>\n                     <br/>\n                     <my-empList></my-empList>\n              "
         })
     ], AppComponent);
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
+////<h1>Hello { { name } } </h1>
+////    < my - emp > </my-emp>
+////    < br />
+////    <button[disabled] = 'isDisable' > Click Me < /button>
+////        < button(click) = 'onClick()' > Click < /button>
+////event binding
+////Name: <input[value]= 'name'(input) = 'name = $event.target.value' />
+////    <br/>
+////You have entered: { { name } }
+////<br/>  <br/ >
+////    Company : <input[(ngModel)]= 'company' />
+////        <br/>
+////You Company entered: { { company } }
+////<br/>
+////Employee List Using * ngFor
+////    ========================
 //# sourceMappingURL=app.component.js.map

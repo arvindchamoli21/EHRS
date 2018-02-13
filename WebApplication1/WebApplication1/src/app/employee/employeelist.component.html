@@ -1,18 +1,53 @@
-﻿<table>
+﻿<style>
+    table {
+    border-collapse: collapse;
+}
+table, th {
+     color: #369;
+     border: 1px solid black;
+}
+table,td {
+    border: 1px solid black;
+    color: black;
+}
+</style>
+
+
+<emp-count [all] = "getTotalEmployee()"
+           [male]="getTotalMaleEmployee()"
+           [female]="getTotalFemaleEmployee()"
+           (countRadioButtonSelectionChanged) ="onEmployeeCountRadioButtonChange($event)" >
+
+</emp-count>
+<br />
+<br />
+<table>
     <thead>
         <tr>
             <th>Empoyee Code</th>
             <th>Employee Name</th>
             <th>Salary</th>
             <th>Gender</th>
-
+            <th>DOB</th>
+            <th>Action</th>
         </tr>
     </thead>
-    <tr *ngFor="let employee of employees">
-        <td>{{employee.empcode}}</td>
-        <td>{{employee.name}}</td>
-        <td>{{employee.salary}}</td>
-        <td>{{employee.gender}}</td>
-    </tr>
+    <tbody>
+        <ng-container *ngFor ="let employee of employees">
+            <tr *ngIf="selectedEmployeeCountRadioButton =='All' || selectedEmployeeCountRadioButton == employee.gender">
+                <td>{{employee.empcode | uppercase}}</td>
+                <td>{{employee.name | employeeTitle : employee.gender }}</td>
+                <td>{{employee.salary | currency :'INR' : true}}</td>
+                <td>{{employee.gender}}</td>
+                <td>{{employee.dob | date :'dd/MM/y'}}</td>
+                <td><a href="#">Edit</a>&nbsp;<a href="#">Delete</a></td>
+
+            </tr>
+        </ng-container>
+    </tbody>
 </table>
+
+<br />
+
+<button (click) = 'getEmployees()'>Refresh</button>
 
