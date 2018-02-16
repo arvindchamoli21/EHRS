@@ -5,13 +5,12 @@ import { EmployeeListComponent } from './employee/employeelist.componenet';
 
 @Component({
     selector: 'my-app',
-    template: `
-                     <h1>Employee List Using * ngFor</h1>
-                     <br/>
-                     <my-empList></my-empList>
+    template: `<my-empList></my-empList>
+             
               `
 })
 export class AppComponent  {
+    usertext: string = 'Input Test';
     name = 'Angular';
     company: string = 'icreon';
     isDisable: boolean = false;
@@ -20,6 +19,14 @@ export class AppComponent  {
     }
 
 }
+////Your Text: <input type='text'[(ngModel)] = 'usertext' />
+////    <br/><br/ >
+////    <simple[smpleInput] ='usertext' > </simple>
+////<h1>Employee List Using * ngFor < /h1>
+////    < br />
+////   <my-empList > </my-empList>
+////   < br />
+
 ////<h1>Hello { { name } } </h1>
 ////    < my - emp > </my-emp>
 ////    < br />

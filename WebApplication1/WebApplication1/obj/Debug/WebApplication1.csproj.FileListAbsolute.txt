@@ -62,3 +62,4 @@ D:\New folder\EHRS\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsi
 D:\New folder\EHRS\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\New folder\EHRS\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 D:\New folder\EHRS\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+D:\New folder\EHRS\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache

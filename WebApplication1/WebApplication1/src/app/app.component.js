@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
+        this.usertext = 'Input Test';
         this.name = 'Angular';
         this.company = 'icreon';
         this.isDisable = false;
@@ -18,12 +19,19 @@ var AppComponent = /** @class */ (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n                     <h1>Employee List Using * ngFor</h1>\n                     <br/>\n                     <my-empList></my-empList>\n              "
+            template: "<my-empList></my-empList>\n             \n              "
         })
     ], AppComponent);
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
+////Your Text: <input type='text'[(ngModel)] = 'usertext' />
+////    <br/><br/ >
+////    <simple[smpleInput] ='usertext' > </simple>
+////<h1>Employee List Using * ngFor < /h1>
+////    < br />
+////   <my-empList > </my-empList>
+////   < br />
 ////<h1>Hello { { name } } </h1>
 ////    < my - emp > </my-emp>
 ////    < br />

@@ -9,18 +9,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
+var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var employee_component_1 = require("./employee/employee.component");
 var employeelist_componenet_1 = require("./employee/employeelist.componenet");
 var employeeTitle_pipe_1 = require("./employee/employeeTitle.pipe");
 var employeeCount_component_1 = require("./employee/employeeCount.component");
+var simple_1 = require("./Simple/simple");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent, employee_component_1.EmployeeComponent, employeelist_componenet_1.EmployeeListComponent, employeeTitle_pipe_1.EmployeeTitlePipe, employeeCount_component_1.EmployeeCount],
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule],
+            declarations: [app_component_1.AppComponent, employee_component_1.EmployeeComponent, employeelist_componenet_1.EmployeeListComponent, employeeTitle_pipe_1.EmployeeTitlePipe, employeeCount_component_1.EmployeeCount, simple_1.SimpleComponent],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

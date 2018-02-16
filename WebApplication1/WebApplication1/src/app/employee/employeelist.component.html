@@ -13,7 +13,7 @@ table,td {
 </style>
 
 
-<emp-count [all] = "getTotalEmployee()"
+<emp-count *ngIf="employees" [all] = "getTotalEmployee()"
            [male]="getTotalMaleEmployee()"
            [female]="getTotalFemaleEmployee()"
            (countRadioButtonSelectionChanged) ="onEmployeeCountRadioButtonChange($event)" >

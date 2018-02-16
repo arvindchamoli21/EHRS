@@ -142,6 +142,8 @@
     <TypeScriptCompile Include="src\app\employee\employeeCount.component.ts" />
     <TypeScriptCompile Include="src\app\employee\employeelist.componenet.ts" />
     <TypeScriptCompile Include="src\app\employee\employeeTitle.pipe.ts" />
+    <TypeScriptCompile Include="src\app\employee\employee.service.ts" />
+    <TypeScriptCompile Include="src\app\Simple\simple.ts" />
     <TypeScriptCompile Include="src\main.ts" />
   </ItemGroup>
   <ItemGroup>
