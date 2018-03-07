@@ -33,21 +33,53 @@ table,td {
         </tr>
     </thead>
     <tbody>
+    
         <ng-container *ngFor ="let employee of employees">
             <tr *ngIf="selectedEmployeeCountRadioButton =='All' || selectedEmployeeCountRadioButton == employee.gender">
-                <td>{{employee.empcode | uppercase}}</td>
+                <td>{{employee.code | uppercase}}</td>
                 <td>{{employee.name | employeeTitle : employee.gender }}</td>
-                <td>{{employee.salary | currency :'INR' : true}}</td>
+                <td>{{employee.annualSalary | currency :'INR' : true}}</td>
                 <td>{{employee.gender}}</td>
-                <td>{{employee.dob | date :'dd/MM/y'}}</td>
+                <td>{{employee.dateOfBirth | date :'dd/MM/y'}}</td>
                 <td><a href="#">Edit</a>&nbsp;<a href="#">Delete</a></td>
 
             </tr>
         </ng-container>
+
+
+      
+
+    </tbody>
+</table>
+<br>
+
+<table>
+    <thead>
+        <tr>
+            <th>Empoyee Code</th>
+            <th>Employee Name</th>
+            <th>Salary</th>
+            <th>Gender</th>
+            <th>DOB</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <ng-container *ngFor="let employee of comments">
+            <tr *ngIf="selectedEmployeeCountRadioButton =='All' || selectedEmployeeCountRadioButton == employee.gender">
+                <td>{{employee.code | uppercase}}</td>
+                <td>{{employee.name | employeeTitle : employee.gender }}</td>
+                <td>{{employee.annualSalary | currency :'INR' : true}}</td>
+                <td>{{employee.gender}}</td>
+                <td>{{employee.dateOfBirth | date :'dd/MM/y'}}</td>
+                <td><a href="#">Edit</a>&nbsp;<a href="#">Delete</a></td>
+            </tr>
+        </ng-container>
+
     </tbody>
 </table>
 
 <br />
-
 <button (click) = 'getEmployees()'>Refresh</button>
 

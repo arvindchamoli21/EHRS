@@ -11,26 +11,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var employee_service_1 = require("./employee.service");
+require("rxjs/add/operator/toPromise");
 var EmployeeListComponent = /** @class */ (function () {
-    function EmployeeListComponent(_employeeservice) {
+    function EmployeeListComponent(_employeeservice, zone) {
         this._employeeservice = _employeeservice;
+        this.zone = zone;
         this.selectedEmployeeCountRadioButton = 'All';
     }
+    //ngOnInit() {
+    //    debugger;
+    //    this._employeeservice.getComments().subscribe((employeeData) => this.employees == employeeData);//// This is the Use of suscribe method for observable service method
+    //    console.log(this.employees);
+    //}
     EmployeeListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this._employeeservice.getEmployees().subscribe(function (employeeData) { return _this.employees == employeeData; }); //// This is the Use of suscribe method for observable service method
+        this.zone.run(function () {
+            _this.getComments().toPromise().then(function (data) {
+                _this.employees = data || [];
+            });
+        });
+        this._employeeservice.getEmployees().subscribe(function (data) { return _this.comments = data; }, function (error) { return console.log(error); });
+    };
+    EmployeeListComponent.prototype.getComments = function () {
+        return this._employeeservice.getComments();
     };
     EmployeeListComponent.prototype.getEmployees = function () {
-        this.employees = [
-            { empcode: 'e101', name: 'Arvind chamoli', salary: 15478, gender: 'Male', dob: '02/12/2018' },
-            { empcode: 'e102', name: 'Vijendra Kumar', salary: 215478, gender: 'Male', dob: '02/12/2018' },
-            { empcode: 'e103', name: 'Gaurav Udawat', salary: 35478, gender: 'Male', dob: '02/12/2018' },
-            { empcode: 'e104', name: 'Dharmendra Kumar', salary: 35478, gender: 'Male', dob: '02/12/2018' },
-            { empcode: 'e105', name: 'Shruti Pandey', salary: 3000, gender: 'Female', dob: '04/12/2018' },
-            { empcode: 'e106', name: 'Prachi Arora', salary: 20000, gender: 'Female', dob: '05/12/2018' },
-            { empcode: 'e107', name: 'Shruti Pandey', salary: 3000, gender: 'Female', dob: '04/12/2018' },
-            { empcode: 'e108', name: 'Prachi Arora', salary: 20000, gender: 'Female', dob: '05/12/2018' }
-        ];
+        return this._employeeservice.getEmployees();
     };
     EmployeeListComponent.prototype.onEmployeeCountRadioButtonChange = function (selectRadioButtonValue) {
         this.selectedEmployeeCountRadioButton = selectRadioButtonValue;
@@ -51,7 +57,7 @@ var EmployeeListComponent = /** @class */ (function () {
             styleUrls: ["./employeelist.component.css"],
             providers: [employee_service_1.EmployeeService]
         }),
-        __metadata("design:paramtypes", [employee_service_1.EmployeeService])
+        __metadata("design:paramtypes", [employee_service_1.EmployeeService, core_1.NgZone])
     ], EmployeeListComponent);
     return EmployeeListComponent;
 }());

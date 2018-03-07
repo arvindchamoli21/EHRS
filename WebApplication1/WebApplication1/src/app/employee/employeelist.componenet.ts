@@ -1,6 +1,7 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit, NgZone } from '@angular/core';
 import { IEmployee } from './employee';
 import { EmployeeService } from './employee.service';
+import 'rxjs/add/operator/toPromise' 
 
 @Component({
     selector: 'my-empList',
@@ -12,31 +13,41 @@ import { EmployeeService } from './employee.service';
 
 export class EmployeeListComponent implements OnInit {
     employees: IEmployee[];// contructor 
+    comments: IEmployee[];
     selectedEmployeeCountRadioButton: string = 'All';
-    constructor(private _employeeservice: EmployeeService) {
+    constructor(private _employeeservice: EmployeeService, private zone: NgZone) {
     }
+ 
+    //ngOnInit() {
+    //    debugger;
+    //    this._employeeservice.getComments().subscribe((employeeData) => this.employees == employeeData);//// This is the Use of suscribe method for observable service method
+    //    console.log(this.employees);
+       
+    //}
 
     ngOnInit() {
-        this._employeeservice.getEmployees().subscribe((employeeData) => this.employees == employeeData);//// This is the Use of suscribe method for observable service method
+        this.zone.run(() => {
+            this.getComments().toPromise().then((data) => {
+                this.employees = data || [];
+            });
+        })
+        this._employeeservice.getEmployees().subscribe(
+            data => this.comments = data,
+            error => console.log(error)
+           );
     }
-    getEmployees(): void {
-        this.employees = [
-            { empcode: 'e101', name: 'Arvind chamoli', salary: 15478, gender: 'Male', dob: '02/12/2018' },
-            { empcode: 'e102', name: 'Vijendra Kumar', salary: 215478, gender: 'Male', dob: '02/12/2018' },
-            { empcode: 'e103', name: 'Gaurav Udawat', salary: 35478, gender: 'Male', dob: '02/12/2018' },
-            { empcode: 'e104', name: 'Dharmendra Kumar', salary: 35478, gender: 'Male', dob: '02/12/2018' },
-            { empcode: 'e105', name: 'Shruti Pandey', salary: 3000, gender: 'Female', dob: '04/12/2018' },
-            { empcode: 'e106', name: 'Prachi Arora', salary: 20000, gender: 'Female', dob: '05/12/2018' },
-            { empcode: 'e107', name: 'Shruti Pandey', salary: 3000, gender: 'Female', dob: '04/12/2018' },
-            { empcode: 'e108', name: 'Prachi Arora', salary: 20000, gender: 'Female', dob: '05/12/2018' }
-        ];
 
+    getComments() {
+        return this._employeeservice.getComments();
+    }
+
+    getEmployees() {
+        return this._employeeservice.getEmployees();
     }
 
     onEmployeeCountRadioButtonChange(selectRadioButtonValue: string): void {
         this.selectedEmployeeCountRadioButton = selectRadioButtonValue;
     }
-
 
     getTotalEmployee(): number {
         return this.employees.length;

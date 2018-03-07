@@ -87,3 +87,4 @@ D:\New folder\EHRS\WebApplication1\EmployeeWebAPI\bin\Microsoft.Owin.Security.Mi
 D:\New folder\EHRS\WebApplication1\EmployeeWebAPI\bin\System.Web.Http.Owin.xml
 D:\New folder\EHRS\WebApplication1\EmployeeWebAPI\obj\Debug\EmployeeWebAPI.dll
 D:\New folder\EHRS\WebApplication1\EmployeeWebAPI\obj\Debug\EmployeeWebAPI.pdb
+D:\New folder\EHRS\WebApplication1\EmployeeWebAPI\obj\Debug\EmployeeWebAPI.csprojResolveAssemblyReference.cache
